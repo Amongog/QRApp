@@ -95,7 +95,9 @@ while True:
                         print('\n', informacion_contacto)
 
     elif(accion_principal == 2):
-        break
+        """
+        ---> Esta es la sección detrabajo para @Mario Benavides
+        """
 
     else:
         print('\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!')
