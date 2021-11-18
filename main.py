@@ -7,6 +7,8 @@
 #                   David Campos Espinoza
 # -----------------------------------------------------------------------------
 import qrcode
-import cv2
+# import cv2
 
-print("Hola mundo...")
+img = qrcode.make("https://www.youtube.com/")
+type(img)
+img.save("youtubeQR.jpg")
