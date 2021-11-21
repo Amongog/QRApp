@@ -5,25 +5,20 @@
 #                               Grupo 06
 #        Generador  QR: Samuel Berrocal Soto.   samuel.berrocal@ucr.ac.cr
 #        Escáner    QR: Mario Benavides
-#        UI Design    : David Campos Espinoza
+#        GUI          : David Campos Espinoza
 # -----------------------------------------------------------------------------
 # Clase principal.
 import qrcode
+import cv2
 # Otras clases útiles.
-# import cv2
-from PIL import Image
-from time import sleep
-
-# img = qrcode.make("https://www.youtube.com/")
-# type(img)
-# img.save("youtubeQR.jpg")
-# img = Image.open('youtubeQR.jpg')
-# img.show(youtubeQR.jpg)
+from PIL import Image       # Para mostrar las imágenes.
+from time import sleep      # Para crear un delay en la ejecución de código.
+import yaml                 # Para darle formato al texto en el código QR.
 
 # Inicialización de estructuras de datos.
 informacion_contacto = {}
 texto_simple = ''
-informacion_vacunas = {}
+informacion_vacuna = {}
 
 while True:
 
@@ -54,7 +49,7 @@ while True:
             print('| (0) Regresar.                          |')
             print('| (1) Información de contacto.           |')
             print('| (2) Texto simple.                      |')
-            print('| (3) Información de vacunación.         |')
+            print('| (3) Información de vacuna (COVID-19).  |')
             print('|----------------------------------------|')
             print('******************************************')
 
@@ -70,7 +65,7 @@ while True:
                     print('|----------------------------------------|')
                     print('|     Generar Información de Contacto    |')
                     print('|----------------------------------------|')
-                    print('| Seleccione la información deseada.     |')
+                    print('| Seleccione la opción deseada.          |')
                     print('| (0) Regresar.                          |')
                     print('| (1) Nombre(s).                         |')
                     print('| (2) Apellidos.                         |')
@@ -91,12 +86,221 @@ while True:
                         print('|Digite su nombre a continuación.        |')
                         print('|----------------------------------------|')
                         print('******************************************')
+
                         informacion_contacto['Nombre(s)'] = str(input('» '))
-                        print('\n', informacion_contacto)
+
+                    elif(opcion_contacto == 2):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite sus apellidos.                   |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_contacto['Apellidos'] = str(input('» '))
+
+                    elif(opcion_contacto == 3):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite su número de teléfono.           |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_contacto['Telefono'] = str(input('» '))
+
+                    elif(opcion_contacto == 4):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite su email a continuación.         |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_contacto['Email'] = str(input('» '))
+
+                    elif(opcion_contacto == 5):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|        Generando código QR ...         |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+                        qr_informacion_contacto = yaml.dump(
+                            informacion_contacto, sort_keys=False,
+                            default_flow_style=False
+                            )
+                        img = qrcode.make(qr_informacion_contacto)
+                        type(img)
+                        img.save('informacion_contacto.jpg', 'JPEG')
+                        img_saved = Image.open('informacion_contacto.jpg')
+                        img_saved.show()
+
+                    else:
+                        print(
+                            '\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!'
+                        )
+                        sleep(2)
+
+            elif(tipo_qr == 2):
+                while True:
+
+                    print('\n******************************************')
+                    print('|----------------------------------------|')
+                    print('|     Generar Mensaje de Texto           |')
+                    print('|----------------------------------------|')
+                    print('| Seleccione la opción deseada.          |')
+                    print('| (0) Regresar.                          |')
+                    print('| (1) Ingresar texto.                    |')
+                    print('| (2) Generar QR.                        |')
+                    print('|----------------------------------------|')
+                    print('******************************************')
+
+                    opcion_texto = int(input('» '))
+
+                    if(opcion_texto == 0):
+                        break
+
+                    elif(opcion_texto == 1):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Ingrese el mensaje de texto.            |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        texto_simple = str(input('» '))
+
+                    elif(opcion_texto == 2):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|        Generando código QR ...         |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+                        img = qrcode.make(texto_simple)
+                        type(img)
+                        img.save('texto_simple.jpg', 'JPEG')
+                        img_saved = Image.open('texto_simple.jpg')
+                        img_saved.show()
+
+                    else:
+                        print(
+                            '\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!'
+                        )
+                        sleep(2)
+
+            elif(tipo_qr == 3):
+                while True:
+
+                    print('\n******************************************')
+                    print('|----------------------------------------|')
+                    print('|Generar Información de Vacuna (COVID-19)|')
+                    print('|----------------------------------------|')
+                    print('| Seleccione la opción deseada.          |')
+                    print('| (0) Regresar.                          |')
+                    print('| (1) Fecha (primera dosis).             |')
+                    print('| (2) Nombre de vacuna (primera dosis).  |')
+                    print('| (3) Lote vacuna (primera dosis).       |')
+                    print('| (4) Fecha (segunda dosis).             |')
+                    print('| (5) Nombre de vacuna (segunda dosis).  |')
+                    print('| (6) Lote vacuna (segunda dosis).       |')
+                    print('| (7) Generar QR.                        |')
+                    print('|----------------------------------------|')
+                    print('******************************************')
+
+                    opcion_vacuna = int(input('» '))
+
+                    if(opcion_vacuna == 0):
+                        break
+
+                    elif(opcion_vacuna == 1):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite la fecha de la primera dosis.    |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Fecha de Primera Dosis'] = str(input('» '))
+
+                    elif(opcion_vacuna == 2):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite el nombre de la farmacéutica para|')
+                        print('|la primera dosis.                       |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Nombre de la Vacuna de la Primera Dosis'
+                            ] = str(input('» '))
+
+                    elif(opcion_vacuna == 3):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite el número de lote de la primera  |')
+                        print('|dosis.                                  |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Numero de Lote de la Primera Dosis'
+                            ] = str(input('» '))
+
+                    elif(opcion_vacuna == 4):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite la fecha de la segunda dosis.    |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Fecha de Segunda Dosis'] = str(input('» '))
+
+                    elif(opcion_vacuna == 5):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite el nombre de la farmacéutica para|')
+                        print('|la segunda dosis.                       |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Nombre de la Vacuna de la Segunda Dosis'
+                            ] = str(input('» '))
+
+                    elif(opcion_vacuna == 6):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|Digite el número de lote de la segunda  |')
+                        print('|dosis.                                  |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_vacuna[
+                            'Numero de Lote de la Segunda Dosis'
+                            ] = str(input('» '))
+
+                    elif(opcion_vacuna == 7):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
+                        print('|        Generando código QR ...         |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+                        qr_informacion_vacuna = yaml.dump(
+                            informacion_vacuna, sort_keys=False,
+                            default_flow_style=False
+                            )
+                        img = qrcode.make(qr_informacion_vacuna)
+                        type(img)
+                        img.save('informacion_vacuna.jpg', 'JPEG')
+                        img_saved = Image.open('informacion_vacuna.jpg')
+                        img_saved.show()
+
+                    else:
+                        print(
+                            '\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!'
+                        )
+                        sleep(2)
 
     elif(accion_principal == 2):
         """
-        ---> Esta es la sección detrabajo para @Mario Benavides
+        ---> Esta es la sección de trabajo para @Mario Benavides
         """
 
     else:
