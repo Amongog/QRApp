@@ -69,8 +69,8 @@ while True:
                     print('| (0) Regresar.                          |')
                     print('| (1) Nombre(s).                         |')
                     print('| (2) Apellidos.                         |')
-                    print('| (3) Teléfono.                          |')
-                    print('| (4) Email.                             |')
+                    print('| (3) Cédula de Identidad.               |')
+                    print('| (4) Teléfono.                          |')
                     print('| (5) Generar QR.                        |')
                     print('|----------------------------------------|')
                     print('******************************************')
@@ -101,20 +101,20 @@ while True:
                     elif(opcion_contacto == 3):
                         print('\n******************************************')
                         print('|----------------------------------------|')
+                        print('|Digite su cédula de identidad.          |')
+                        print('|----------------------------------------|')
+                        print('******************************************')
+
+                        informacion_contacto['Cedula'] = str(input('» '))
+
+                    elif(opcion_contacto == 4):
+                        print('\n******************************************')
+                        print('|----------------------------------------|')
                         print('|Digite su número de teléfono.           |')
                         print('|----------------------------------------|')
                         print('******************************************')
 
                         informacion_contacto['Telefono'] = str(input('» '))
-
-                    elif(opcion_contacto == 4):
-                        print('\n******************************************')
-                        print('|----------------------------------------|')
-                        print('|Digite su email a continuación.         |')
-                        print('|----------------------------------------|')
-                        print('******************************************')
-
-                        informacion_contacto['Email'] = str(input('» '))
 
                     elif(opcion_contacto == 5):
                         print('\n******************************************')
@@ -126,9 +126,11 @@ while True:
                             informacion_contacto, sort_keys=False,
                             default_flow_style=False
                             )
+                        # Para guardar la imagen.
                         img = qrcode.make(qr_informacion_contacto)
                         type(img)
                         img.save('informacion_contacto.jpg', 'JPEG')
+                        # Para mostrar la imagen.
                         img_saved = Image.open('informacion_contacto.jpg')
                         img_saved.show()
 
@@ -172,9 +174,11 @@ while True:
                         print('|        Generando código QR ...         |')
                         print('|----------------------------------------|')
                         print('******************************************')
+                        # Para guardar la imagen.
                         img = qrcode.make(texto_simple)
                         type(img)
                         img.save('texto_simple.jpg', 'JPEG')
+                        # Para mostrar la imagen.
                         img_saved = Image.open('texto_simple.jpg')
                         img_saved.show()
 
@@ -286,9 +290,11 @@ while True:
                             informacion_vacuna, sort_keys=False,
                             default_flow_style=False
                             )
+                        # Para crear la imagen.
                         img = qrcode.make(qr_informacion_vacuna)
                         type(img)
                         img.save('informacion_vacuna.jpg', 'JPEG')
+                        # Para mostrar la imagen.
                         img_saved = Image.open('informacion_vacuna.jpg')
                         img_saved.show()
 
@@ -299,9 +305,11 @@ while True:
                         sleep(2)
 
     elif(accion_principal == 2):
-        """
-        ---> Esta es la sección de trabajo para @Mario Benavides
-        """
+
+        d = cv2.QRCodeDetector()
+        val, _, _ = d.detectAndDecode(cv2.imread("informacion_contacto.jpg"))
+        print("El QR decodificado es:")
+        print(val)
 
     else:
         print('\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!')
