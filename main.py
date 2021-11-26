@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# !/usr/bin/env python3
 # -----------------------------------------------------------------------------
 #             IE-0117 Programación Bajo Plataformas Abiertas
 #                      Proyecto Python: App Código QR
@@ -305,11 +305,70 @@ while True:
                         sleep(2)
 
     elif(accion_principal == 2):
+        while True:
 
-        d = cv2.QRCodeDetector()
-        val, _, _ = d.detectAndDecode(cv2.imread("informacion_contacto.jpg"))
-        print("El QR decodificado es:")
-        print(val)
+            print('\n******************************************')
+            print('|----------------------------------------|')
+            print('|         Lector de Códigos QR           |')
+            print('|----------------------------------------|')
+            print('| Seleccione el QR que desea decodificar.|')
+            print('| (0) Regresar.                          |')
+            print('| (1) informacion_contacto.jpg           |')
+            print('| (2) texto_simple.jpg                   |')
+            print('| (3) informacion_vacuna.jpg             |')
+            print('|----------------------------------------|')
+            print('******************************************')
+
+            tipo_lectura = int(input('» '))
+
+            if(tipo_lectura == 0):
+                break
+
+            elif(tipo_lectura == 1):
+                # Decodifica
+                decode = cv2.QRCodeDetector()
+                # dato, ____ , ___
+                datos, _, _ = decode.detectAndDecode(
+                    cv2.imread("informacion_contacto.jpg"))
+
+                print('\n******************************************')
+                print('|----------------------------------------|')
+                print('|        Decodificando código QR ...     |')
+                print('|----------------------------------------|')
+                print('******************************************')
+                print(datos)
+
+            elif(tipo_lectura == 2):
+                # Decodifica
+                decode = cv2.QRCodeDetector()
+                # dato, ____ , ___
+                datos, _, _ = decode.detectAndDecode(
+                    cv2.imread("texto_simple.jpg"))
+
+                print('\n******************************************')
+                print('|----------------------------------------|')
+                print('|        Decodificando código QR ...     |')
+                print('|----------------------------------------|')
+                print('******************************************')
+                print(datos)
+
+            elif(tipo_lectura == 3):
+                # Decodifica
+                decode = cv2.QRCodeDetector()
+            # dato, ____ , ___
+                datos, _, _ = decode.detectAndDecode(
+                    cv2.imread("informacion_vacuna.jpg"))
+
+                print('\n******************************************')
+                print('|----------------------------------------|')
+                print('|        Decodificando código QR ...     |')
+                print('|----------------------------------------|')
+                print('******************************************')
+                print(datos)
+
+            else:
+                print('\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!')
+                sleep(2)
 
     else:
         print('\n!!! Ingrese una opción válida (╯°□°）╯︵ ┻━┻ !!!')
