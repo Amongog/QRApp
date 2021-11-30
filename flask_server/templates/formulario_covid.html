@@ -2,28 +2,48 @@
 
 
 {% block content %}
-  <form method="post">
-    <label for="dosis1">Fecha primera dósis</label>
-    <input name="dosis1" id="dosis1" required>
-    <label for="nombre1">Nombre vacuna (primera dósis)</label>
-    <input name="nombre1" id="nombre1" required>
-    <label for="lote1">Lote Vacuna (primera dosis)</label>
-    <input name="lote1" id="lote1" required>
-    <label for="dosis2">Fecha segunda dósis</label>
-    <input name="dosis2" id="dosis2" required>
-    <label for="nombre2">Nombre vacuna (segunda dósis)</label>
-    <input name="nombre2" id="nombre2" required>
-    <label for="lote2">Lote Vacuna (segunda dosis)</label>
-    <input name="lote2" id="lote2" required>
-    <input type="submit" value="Generar">
-  </form>
 
-  <div class="row">
-    {% if completo %}
-      <img src="{{ url_for('static', filename='informacion_covid.jpg') }}"  class="codigoqr" alt="Código QR">
-    {% endif %}
-  </div>
-  <div class="row">
-    <a href="/generate_menu" class="btn btn-info">Regresar</a>
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form method="post">
+          <div class="form-group">
+            <label for="dosis1">Fecha primera dósis</label>
+            <input name="dosis1" type="date" class="form-control" id="dosis1" required>
+          </div>
+          <div class="form-group">
+            <label for="nombre1">Nombre primera dósis</label>
+            <input name="nombre1"  class="form-control" id="nombre1" required>
+          </div>
+          <div class="form-group">
+            <label for="lote1">Lote primera dósis</label>
+            <input name="lote1" type="number" class="form-control" id="lote1" required>
+          </div>
+          <div class="form-group">
+            <label for="dosis2">Fecha segunda dósis</label>
+            <input name="dosis2" type="date" class="form-control" id="dosis2" required>
+          </div>
+          <div class="form-group">
+            <label for="nombre2">Nombre segunda dósis</label>
+            <input name="nombre2" class="form-control" id="nombre2" required>
+          </div>
+          <div class="form-group">
+            <label for="lote2">Lote segunda dósis</label>
+            <input name="lote2" type= "number" class="form-control" id="lote2" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Generar</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+        {% if completo %}
+          <img src="{{ url_for('static', filename='informacion_covid.jpg') }}"  class="codigoqr" alt="Código QR">
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <a href="/generate_menu" class="btn btn-primary">Regresar</a>
+    </div>
+  <div>
 {% endblock %}

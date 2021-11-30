@@ -1,13 +1,14 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - QR APP</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
 <section class="content">
   <header>
     {% block header %}{% endblock %}
   </header>
 
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Proframación Bajo Plataformas Abiertas</a>
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Programación Bajo Plataformas Abiertas</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

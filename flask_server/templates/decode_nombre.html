@@ -2,17 +2,19 @@
 
 
 {% block content %}
-<div>
-  <p class="lead">Su información es la siguiente.</p>
-</div>
-
+<div class="container">
   <div class="row">
-    {% if datos %}
-      <p> {{datos}} </p>
-    {% endif %}
+    <div class="col">
+      <div>
+        <p class="lead">Su información es la siguiente.</p>
+      </div>
+      {% if datos %}
+        <p> {{datos}} </p>
+      {% endif %}
+    </div>
   </div>
-
   <div class="row">
     <a href="/" class="btn btn-info">Regresar</a>
   </div>
+</div>
 {% endblock %}

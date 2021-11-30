@@ -2,17 +2,27 @@
 
 
 {% block content %}
-  <form method="post">
-    <label for="username">Ingrese el texto deseado</label>
-    <input name="username" id="username" required>
-    <input type="submit" value="Generar">
-  </form>
+<div class="container">
   <div class="row">
-    {% if completo %}
-      <img src="{{ url_for('static', filename='informacion_texto.jpg') }}"  class="codigoqr" alt="Código QR">
-    {% endif %}
+    <div class="col">
+      <form method="post">
+        <div class="form-group">
+          <label for="username">Digite el texto que sea codificar</label>
+          <input name="username" class="form-control" id="username" required>
+        </div>
+        <button type="submit"  class="btn btn-primary">Generar</button>
+        </form>
+      </div>
   </div>
   <div class="row">
-    <a href="/generate_menu" class="btn btn-info">Regresar</a>
+      {% if completo %}
+        <img src="{{ url_for('static', filename='informacion_texto.jpg') }}"  class="codigoqr" alt="Código QR">
+      {% endif %}
   </div>
+
+  <div class="row">
+      <a href="/generate_menu" class="btn btn-primary">Regresar</a>
+  </div>
+</div>
+
 {% endblock %}
