@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Generar código QR información contacto</h5>
+          <p class="card-text">Se puede codificar su información personal (Nombre, apellidos, número de cédulay número de teléfono)</p>
+          <a href="/generate_menu/formulario_nombre" class="btn btn-info">Información de contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Generar código QR texto simple</h5>
+          <p class="card-text">Se puede codificar un texto deseado.</p>
+          <a href="/generate_menu/formulario_texto" class="btn btn-info">Texto simple</a>
+        </div>
+      </div>
+    </div>
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title">Generar código QR información vacunación covid 19</h5>
+            <p class="card-text">Se pueden codificar datos relacionados a su esquema de vacunación.</p>
+            <a href="/generate_menu/formulario_covid" class="btn btn-info">Información COVID-19</a>
+          </div>
+        </div>
+      </div>
+  </div>
+<div>
+
+  <div class="row">
+    <a href="/" class="btn btn-info">Regresar</a>
+  </div>
+{% endblock %}
