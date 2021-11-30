@@ -12,11 +12,11 @@ En el directorio de trabajo:
   6. pip install yaml
   7. pip install opencv-python
   8. pip install qrcode
-... todos los paquetes (yaml, cv2, etc..)
-  9. export FLASK_APP="flask_server"
-  export FLASK_ENV="development"
-  10. flask run
-  11. Escribir 127.0.01:5000 en el navegador.
+  9. ... todos los paquetes (yaml, cv2, etc..)
+  10. export FLASK_APP="flask_server"
+  11. export FLASK_ENV="development"
+  12. flask run
+  13. Escribir 127.0.01:5000 en el navegador.
   
 Nota: Para el decodificador, se debe modificar el path que contiene plataformas.py en cada
 funcón decode, ya que esto varía dependendo dónde el usuario guarda las imágenes.
