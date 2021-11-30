@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Generar código QR</h5>
+          <p class="card-text">Se puede codificar su información mediante la generación de un código QR.</p>
+          <a href="/generate_menu" class="btn btn-info">Generar Código</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title">Decodificar código QR</h5>
+          <p class="card-text">Se pueden decodificar las imágenes generadas para verificar la información.</p>
+          <a href="/decode_menu" class="btn btn-info">Decodificar Código</a>
+        </div>
+      </div>
+      </div>
+  </div>
+<div>
+{% endblock %}

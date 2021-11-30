@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Decodificar código QR información contacto</h5>
+          <p class="card-text">Se puede decodificar su información personal (Nombre, apellidos, número de cédulay número de teléfono)</p>
+          <a href="/decode_menu/decode_nombre" class="btn btn-info">Información de contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Decodificar código QR texto simple</h5>
+          <p class="card-text">Se puede decodificar un texto deseado.</p>
+          <a href="/decode_menu/decode_texto" class="btn btn-info">Texto simple</a>
+        </div>
+      </div>
+    </div>
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title">Decodificar código QR información vacunación covid 19</h5>
+            <p class="card-text">Se pueden decodificar datos relacionados a su esquema de vacunación.</p>
+            <a href="/decode_menu/decode_covid" class="btn btn-info">Información COVID-19</a>
+          </div>
+        </div>
+      </div>
+  </div>
+<div>
+
+  <div class="row">
+    <a href="/" class="btn btn-info">Regresar</a>
+  </div>
+{% endblock %}

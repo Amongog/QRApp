@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <form method="post">
+    <label for="dosis1">Fecha primera dósis</label>
+    <input name="dosis1" id="dosis1" required>
+    <label for="nombre1">Nombre vacuna (primera dósis)</label>
+    <input name="nombre1" id="nombre1" required>
+    <label for="lote1">Lote Vacuna (primera dosis)</label>
+    <input name="lote1" id="lote1" required>
+    <label for="dosis2">Fecha segunda dósis</label>
+    <input name="dosis2" id="dosis2" required>
+    <label for="nombre2">Nombre vacuna (segunda dósis)</label>
+    <input name="nombre2" id="nombre2" required>
+    <label for="lote2">Lote Vacuna (segunda dosis)</label>
+    <input name="lote2" id="lote2" required>
+    <input type="submit" value="Generar">
+  </form>
+
+  <div class="row">
+    {% if completo %}
+      <img src="{{ url_for('static', filename='informacion_covid.jpg') }}"  class="codigoqr" alt="Código QR">
+    {% endif %}
+  </div>
+  <div class="row">
+    <a href="/generate_menu" class="btn btn-info">Regresar</a>
+  </div>
+{% endblock %}
