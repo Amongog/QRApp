@@ -14,7 +14,7 @@ En el directorio de trabajo:
 
   8. pip install qrcode
 
-  10. pip install yaml
+  10. pip install pyyaml
 
   12. pip install opencv-python
 
